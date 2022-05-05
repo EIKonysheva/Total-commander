@@ -25,8 +25,8 @@ namespace Total_commander
         private void InitializeTimer()
         {
              
-            int counter = 0;
-            timer1.Interval = 600;
+            
+            timer1.Interval = 6000;
             timer1.Enabled = true;
             // Hook up timer's tick event handler.  
             this.timer1.Tick += new System.EventHandler(this.toolStripLabel1_Createfile_Click);
@@ -113,9 +113,11 @@ namespace Total_commander
                 if(String.IsNullOrEmpty(textBox_vvod1.Text) || String.IsNullOrEmpty(textBox_vvod2.Text))
                 {
                     MessageBox.Show("Напишите название папки", "Создание папки", MessageBoxButtons.OK);
+                    timer1.Enabled = false;
+                    
                 }
                     string dir = "";
-                    if (/*textBox_vvod1.Focused*/String.IsNullOrEmpty(textBox_vvod1.Text))
+                    if (textBox_vvod1.Focused)
                     {
                         dir = label_path1.Text + "\\" + textBox_vvod1.Text;
                     }
